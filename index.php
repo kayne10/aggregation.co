@@ -7,19 +7,19 @@ require("include/rss_util.php");
 echo "<div id=\"content\">\n";
 echo "<div id=\"content-left\">\n";
 
-$query = "SELECT items.id AS id,feedTitle,feedLink,itemTitle,itemPubDate,itemLink,itemDesc FROM feeds,items WHERE feeds.displayColumn=1 AND feeds.id=items.id";
+$query = "SELECT items.id AS id,feedTitle,feedLink,itemTitle,itemPubDate,itemLink,itemDesc, imageFile FROM feeds,items WHERE feeds.displayColumn=1 AND feeds.id=items.id";
 DisplayColumn($db, $query);
 
 echo "</div>\n";
 echo "<div id=\"content-middle\">\n";
 
-$query = "SELECT items.id AS id,feedTitle,feedLink,itemTitle,itemPubDate,itemLink,itemDesc FROM feeds,items WHERE feeds.displayColumn=2 AND feeds.id=items.id";
+$query = "SELECT items.id AS id,feedTitle,feedLink,itemTitle,itemPubDate,itemLink,itemDesc, imageFile FROM feeds,items WHERE feeds.displayColumn=2 AND feeds.id=items.id";
 DisplayColumn($db, $query);
 
 echo "</div>\n";
 echo "<div id=\"content-right\">\n";
 
-$query = "SELECT items.id AS id,feedTitle,feedLink,itemTitle,itemPubDate,itemLink,itemDesc FROM feeds,items WHERE feeds.displayColumn=3 AND feeds.id=items.id";
+$query = "SELECT items.id AS id,feedTitle,feedLink,itemTitle,itemPubDate,itemLink,itemDesc, imageFile FROM feeds,items WHERE feeds.displayColumn=3 AND feeds.id=items.id";
 DisplayColumn($db, $query);
 
 echo "</div>\n";
@@ -96,6 +96,10 @@ function DisplayItem($prev, $item)
     // Item description
     echo "<div class=\"itemDesc\">" . $item['itemDesc'] . "</div>\n";
     echo "</article>\n";
+		// Display Image
+		if ($item['imageFile'] != NULL) {
+			echo "<img src=\"" . $item['imageFile'] . "\">\n";
+		}
 }
 
 require("include/footer.php");
