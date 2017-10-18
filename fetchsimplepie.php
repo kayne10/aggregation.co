@@ -43,6 +43,7 @@ foreach ($rows as $feed) {
 
 		echo "itemquery=\"" . $itemquery . "\"\n";
 
+
 		$itemrows = Query($db, $itemquery);
 		if (count($itemrows) == 0) {
 			echo "<div><b>";
@@ -51,6 +52,12 @@ foreach ($rows as $feed) {
 
 			echo "<div>";
 			echo $item->get_local_date();
+			echo "</div>";
+
+			echo "<div>";
+			echo $item->get_content();
+			// $matches = preg_match('/(http|https):\/\/[^ ]*\.(png|jpg)/', $item->get_content())
+			// echo "<img src=\"" . $matches[0] . "\" style=\"width:100px;height:100px;" "/>"
 			echo "</div>";
 
 			echo "<div>";

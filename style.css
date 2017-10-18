@@ -5,7 +5,8 @@
 body {
 	width: 100%;
 	margin: 0 auto;
-	background-color: #fffff8;
+	background-color: rgba(0,0,0,0);
+	color: rgba(255,255,255,0);
 	font-family: "Archivo Narrow";
 	font-size: 11pt;
 	text-decoration: none;
